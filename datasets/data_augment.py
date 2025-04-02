@@ -70,3 +70,21 @@ class PairToTensor(transforms.ToTensor):
             Tensor: Converted image.
         """
         return F.to_tensor(pic), F.to_tensor(label)
+
+
+class PairResize:
+    def __init__(self, size):
+        """
+        Args:
+            size (tuple or int): Desired output size. If tuple, it should be (height, width).
+                                   If int, the smaller edge of the image will be matched to this number while preserving aspect ratio.
+        """
+        self.size = size
+
+    def __call__(self, image, label):
+        # If self.size is an int, you can use F.resize with a tuple derived from it.
+        # Here we assume self.size is a tuple (height, width).
+        image_resized = F.resize(image, self.size)
+        label_resized = F.resize(label, self.size)
+        return image_resized, label_resized
+

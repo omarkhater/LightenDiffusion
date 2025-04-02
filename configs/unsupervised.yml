@@ -5,8 +5,8 @@ data:
     patch_size: 512
     channels: 3
     num_workers: 4
-    data_dir: "/data/Image_restoration/LSRW_dataset"
-    ckpt_dir: "ckpt/stage2"
+    data_dir: "/scratch/user/u.ok285885/data/LSRW"
+    ckpt_dir: "/scratch/user/u.ok285885/LightenDiffusion/ckpt/stage2"
     conditional: True
 
 model:
